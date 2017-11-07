@@ -7,21 +7,21 @@ react/react app life cycle/state/props
 ====================
 
 Install npm:
-
-sudo apt-get install npm.
-
+```
+sudo apt-get install npm
+```
 -----------------
 
 We need to install following dependencies:
 
 All dependencies to compile es6 to es5.
 
-babel
-babel-cli
-babel-core
-babel-loader
-babel-preset-react
-babel-preset-es2015
+ - babel
+ - babel-cli
+ - babel-core
+ - babel-loader
+ - babel-preset-react
+ - babel-preset-es2015
 
 
 webpack: This will be used to bundling our js files.
@@ -31,9 +31,9 @@ react-dom: for handling dom in react
 
 
 Do all of the above in one command:
-
+```
 npm install babel babel-cli babel-core babel-loader babel-preset-react babel-preset-es2015  webpack-dev-server webpack react react-dom
-
+```
 Let us do some actual task.
 
 =============================
@@ -46,9 +46,9 @@ We would create following four files to begin with:
 4. webpack.config.js ( our configuration file for webpack.)
 
 Run the following command:
-
+```
 touch index.html App.js main.js webpack.config.js
-
+```
 We would start working with webpack.config.js. Here we will define all our configuration setup, such as, from where the webpack should start bundling, where should it put bundles etc.
 
 
@@ -60,7 +60,7 @@ In a config variable, we would define:
 4. module: this contains all the loader information
 
 So, the final configuration of webpack.config.js file looks like:
-
+```javascript
 	var config = {
 		entry: './main.js',
 		output: {
@@ -86,10 +86,10 @@ So, the final configuration of webpack.config.js file looks like:
 	}
 
 	module.exports = config;
-
+```
 
 The index.html consists of:
-
+```html
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -102,9 +102,9 @@ The index.html consists of:
 		<script src="bundle.js"></script>
 	</body>
 	</html>
-
+```
 App.js is:
-
+```javascript
 	import React from 'react';
 
 	export default class App extends React.Component {
@@ -116,9 +116,9 @@ App.js is:
 			);
 		}
 	}
-
+```
 main.js is:
-
+```javascript
 	import React from "react";
 	import { render } from "react-dom";
 	import App from "./App";
@@ -127,13 +127,13 @@ main.js is:
 	  	<App />,
 	  document.getElementById('app')
 	);
-
-Now change the line scripts from package.json and add:
-
+```
+## Now change the line scripts from package.json and add:
+```javascript
 	"scripts": {
 	    "start": "webpack-dev-server --hot"
 	  }
-
+```
 Run npm start on command line, and output will be:
 
 	Hello From React!!
